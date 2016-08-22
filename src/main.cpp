@@ -198,6 +198,7 @@ int main(int argc, char **argv)
 
         new_prev_to_cur_transform.push_back(TransformParam(dx, dy, da));
 
+        // transformation matrix saved to "new_prev_to_cur_transformation.txt"
         out_new_transform << (i+1) << " " << dx << " " << dy << " " << da << endl;
     }
 
@@ -243,10 +244,12 @@ int main(int argc, char **argv)
             resize(canvas, canvas, Size(canvas.cols/2, canvas.rows/2));
         }
 
+        // inspect with a side by side comparison
         imshow("before and after", canvas);
 
+        // save modified frames
         char str[256];
-        sprintf(str, "images/%08d.jpg", k);
+        sprintf(str, "images/%05d.jpg", k);
         imwrite(str, cur2);
 
         waitKey(20);
